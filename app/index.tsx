@@ -256,7 +256,7 @@ export default function Index() {
           backgroundColor: "orange",
           justifyContent: "center",
           alignItems: "center",
-          // borderRadius: 10, // tambahan biar tidak terlalu kaku
+          
         }}
       >
         <Text style={{ fontSize: 10, color: "black", fontWeight: "bold" }}>
