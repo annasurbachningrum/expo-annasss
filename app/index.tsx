@@ -1,66 +1,102 @@
+import React, { useState } from 'react';
+import {
+  ScrollView,
+  Pressable,
+  Image,
+  StyleSheet,
+  Dimensions,
+  View,
+} from 'react-native';
 
-import { Text, View } from "react-native";
+// ===============================
+// KONFIGURASI GRAFIK / DATA NIM
+// ===============================
 
-export default function Index() {
+const nimAwal = '10584110';
+const nimAkhir = '22';
+const urlUtama = 'https://simak.unismuh.ac.id/upload/mahasiswa/';
+const parameterGambar = '_.jpg?1751871539';
+const gambarAlternatif =
+  'https://uploads-us-west-2.insided.com/figma-en/attachment/7105e9c010b3d1f0ea893ed5ca3bd58e6cec090e.gif';
+
+// ===============================
+// FUNGSI PEMBENTUK DATA GAMBAR
+// ===============================
+
+const buatDaftarGambar = () => {
+  const daftarGambar = [];
+
+  for (let i = 82; i <= 90; i++) {
+    const nim = `${nimAwal}${i}${nimAkhir}`;
+    const main = `${urlUtama}${nim}${parameterGambar}`;
+    daftarGambar.push({ main, alt: gambarAlternatif });
+  }
+
+  return daftarGambar;
+};
+
+// ===============================
+// KOMPONEN UTAMA GRID GAMBAR
+// ===============================
+
+export default function GridGambar() {
+  const dataGambar = buatDaftarGambar();
+
+  const [statusGambar, setStatusGambar] = useState(
+    dataGambar.map(() => ({ scale: 1, isAlt: false }))
+  );
+
+  const handleGambarTekan = (index: number) => {
+    setStatusGambar((prev) =>
+      prev.map((item, i) => {
+        if (i !== index) return item;
+        const newScale = item.scale < 2 ? item.scale * 1.2 : 2;
+        return {
+          scale: newScale,
+          isAlt: !item.isAlt,
+        };
+      })
+    );
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#F5F5F5", // Tambahan untuk latar belakang yang lebih soft
-        padding: 20,
-      }}
-    >
-
-      {/* Segitiga Merah */}
-      <View
-        style={{
-          width: 0,
-          height: 0,
-          borderLeftWidth: 50,
-          borderRightWidth: 50,
-          borderBottomWidth: 100,
-          borderLeftColor: "transparent",
-          borderRightColor: "transparent",
-          borderBottomColor: "red",
-          marginBottom: 20,
-        }}
-      />
-
-      {/* Tabung Biru (Simulasi bentuk oval dengan borderRadius) */}
-      <View
-        style={{
-          width: 120,
-          height: 50,
-          backgroundColor: "blue",
-          borderRadius: 25,
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: 20,
-        }}
-      >
-        <Text style={{ color: "white", fontWeight: "bold" }}>
-          105841109022
-        </Text>
-      </View>
-
-      {/* Persegi Panjang Oranye */}
-      <View
-        style={{
-          width: 200,
-          height: 60,
-          backgroundColor: "orange",
-          justifyContent: "center",
-          alignItems: "center",
-          
-        }}
-      >
-        <Text style={{ fontSize: 10, color: "black", fontWeight: "bold" }}>
-          ANNAS URBACH NINGRUM
-        </Text>
-      </View>
-
-    </View>
+    <ScrollView contentContainerStyle={gaya.grid}>
+      {dataGambar.map((gambarItem, index) => (
+        <Pressable key={index} onPress={() => handleGambarTekan(index)}>
+          <Image
+            source={{ uri: statusGambar[index].isAlt ? gambarItem.alt : gambarItem.main }}
+            style={[
+              gaya.image,
+              {
+                transform: [{ scale: statusGambar[index].scale }],
+              },
+            ]}
+          />
+        </Pressable>
+      ))}
+    </ScrollView>
   );
 }
+
+// ===============================
+// GAYA
+// ===============================
+
+const gaya = StyleSheet.create({
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    padding: 10,
+  },
+  image: {
+    width: Dimensions.get('window').width / 3 - 20,
+    height: Dimensions.get('window').width / 3 - 20,
+    margin: 5,
+    borderRadius: 10,
+    resizeMode: 'cover',
+    backgroundColor: '#ddd',
+    borderWidth: 1,
+    borderColor: '#aaa',
+  },
+});
