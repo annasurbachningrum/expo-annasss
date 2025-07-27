@@ -146,6 +146,30 @@ export default function Index() {
             </TouchableOpacity>
           </Link>
 
+          <Link href="/icon-screen" asChild>
+            <TouchableOpacity style={{
+              backgroundColor: '#9b59b6',
+              paddingHorizontal: 30,
+              paddingVertical: 15,
+              borderRadius: 25,
+              shadowColor: '#9b59b6',
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 6,
+              elevation: 5,
+            }}>
+              <Text style={{
+                fontFamily: "fontBas",
+                fontSize: 16,
+                color: 'white',
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}>
+                🎨 10 Ikon Berbeda (5 Keluarga)
+              </Text>
+            </TouchableOpacity>
+          </Link>
+
           <Link href="/fonts-demo" asChild>
             <TouchableOpacity style={{
               backgroundColor: '#3498db',
