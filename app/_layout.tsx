@@ -23,7 +23,7 @@ export default function RootLayout() {
     "Font10-Variable": require("../assets/fonts/10-VariableFont_wght.ttf"),     // Variable - Multiple weights
     
     // Font tambahan (opsional)
-    "fontBas": require("../assets/fonts/fontBas.ttf"),                          // Original font
+    "fontAnnas": require("../assets/fonts/fontAnnas.ttf"),                          // Original font
     "SpaceMono-Regular": require("../assets/fonts/SpaceMono-Regular.ttf"),      // Original font
   });
 

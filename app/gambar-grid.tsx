@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dimensions, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 // Fungsi untuk generate image pairs menggunakan perulangan
-const bas69GenerateImagePairs = () => {
+const base = () => {
   const baseNIM = '10584110';
   const suffix = '22';
   const baseURL = 'https://simak.unismuh.ac.id/upload/mahasiswa/';
@@ -11,8 +11,8 @@ const bas69GenerateImagePairs = () => {
 
   const pairs = [];
 
-  // Generate untuk NIM 64-73 (11 gambar total, mencakup 5 sebelum + NIM Anda + 5 setelah)
-  for (let i = 64; i <= 73; i++) {
+  // Generate untuk NIM 85-73 (11 gambar total, mencakup 5 sebelum + NIM Anda + 5 setelah)
+  for (let i = 85; i <= 95; i++) {
     const nim = `${baseNIM}${i}${suffix}`;
     const main = `${baseURL}${nim}${query}`;
     const alt = altURL; // semua alternatif sama
@@ -22,7 +22,7 @@ const bas69GenerateImagePairs = () => {
   return pairs;
 };
 
-const bas69ImagePairs = bas69GenerateImagePairs();
+const ImagePairs= base();
 
 // Font list sesuai persyaratan: 5 Static + 5 Variable = 10 font
 const fontList = [
@@ -41,13 +41,13 @@ const fontList = [
   "Font10-Variable"      // Variable - Multiple weights
 ];
 
-export default function Bas69GambarGrid() {
-  const [bas69States, setBas69States] = useState(
-    bas69ImagePairs.map(() => ({ scale: 1, isAlt: false }))
+export default function GambarGrid() {
+  const [baseannas, setbaseannas] = useState(
+    ImagePairs.map(() => ({ scale: 1, isAlt: false }))
   );
 
-  const bas69HandlePress = (index: number) => {
-    setBas69States((prev) =>
+  const ANNAS = (index: number) => {
+    setbaseannas((prev) =>
       prev.map((item, i) => {
         if (i !== index) return item;
         const newScale = item.scale < 2 ? item.scale * 1.2 : 2;
@@ -60,46 +60,46 @@ export default function Bas69GambarGrid() {
   };
 
   return (
-    <ScrollView style={bas69Styles.container}>
+    <ScrollView style={styles.container}>
       {/* Header */}
-      <View style={bas69Styles.header}>
-        <Text style={bas69Styles.headerTitle}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>
           📸 Galeri Foto Mahasiswa
         </Text>
-        <Text style={bas69Styles.headerSubtitle}>
+        <Text style={styles.headerSubtitle}>
           NIM 64-73 dengan 10 Font (5 Static + 5 Variable)
         </Text>
-        <Text style={bas69Styles.yourNimHighlight}>
-          🎯 NIM Anda: 69 (Baso Hamzah)
+        <Text style={styles.yourNimHighlight}>
+          🎯 NIM Anda: 90 (Annas Urbach Ningrum)
         </Text>
       </View>
 
       {/* Info Panel */}
-      <View style={bas69Styles.infoPanel}>
-        <Text style={bas69Styles.infoPanelTitle}>ℹ️ Cara Penggunaan:</Text>
-        <Text style={bas69Styles.infoPanelText}>
+      <View style={styles.infoPanel}>
+        <Text style={styles.infoPanelTitle}>ℹ️ Cara Penggunaan:</Text>
+        <Text style={styles.infoPanelText}>
           • Tekan gambar untuk memperbesar dan mengubah ke alternatif
         </Text>
-        <Text style={bas69Styles.infoPanelText}>
+        <Text style={styles.infoPanelText}>
           • Setiap NIM menggunakan font yang berbeda
         </Text>
-        <Text style={bas69Styles.infoPanelText}>
+        <Text style={styles.infoPanelText}>
           • Gambar akan berubah dan beranimasi saat ditekan
         </Text>
       </View>
 
       {/* Grid Images */}
-      <View style={bas69Styles.grid}>
-        {bas69ImagePairs.map((pair, index) => {
+      <View style={styles.grid}>
+        {ImagePairs.map((pair, index) => {
           // Assign font menggunakan perulangan modulo
           const currentFont = fontList[index % fontList.length];
           
           return (
-            <View key={index} style={bas69Styles.imageContainer}>
+            <View key={index} style={styles.imageContainer}>
               {/* Label NIM dengan font berbeda */}
-              <View style={bas69Styles.nimLabel}>
+              <View style={styles.nimLabel}>
                 <Text style={[
-                  bas69Styles.nimText,
+                  styles.nimText,
                   { 
                     fontFamily: currentFont,
                     color: pair.nimNumber === 69 ? '#ff4444' : '#333'
@@ -108,18 +108,18 @@ export default function Bas69GambarGrid() {
                   NIM: 10584110{pair.nimNumber}22
                   {pair.nimNumber === 69 && ' 🎯'}
                 </Text>
-                <Text style={bas69Styles.fontLabel}>
+                <Text style={styles.fontLabel}>
                   Font: {currentFont}
                 </Text>
               </View>
 
-              <Pressable onPress={() => bas69HandlePress(index)}>
+              <Pressable onPress={() => ANNAS(index)}>
                 <Image
-                  source={{ uri: bas69States[index].isAlt ? pair.alt : pair.main }}
+                  source={{ uri: baseannas[index].isAlt ? pair.alt : pair.main }}
                   style={[
-                    bas69Styles.image,
+                    styles.image,
                     {
-                      transform: [{ scale: bas69States[index].scale }],
+                      transform: [{ scale: baseannas[index].scale }],
                       borderColor: pair.nimNumber === 69 ? '#ff4444' : '#ddd',
                       borderWidth: pair.nimNumber === 69 ? 3 : 1,
                     },
@@ -128,12 +128,12 @@ export default function Bas69GambarGrid() {
               </Pressable>
 
               {/* Status indicator */}
-              <View style={bas69Styles.statusContainer}>
-                <Text style={bas69Styles.statusText}>
-                  {bas69States[index].isAlt ? '🔄 Alt Image' : '📷 Original'}
+              <View style={styles.statusContainer}>
+                <Text style={styles.statusText}>
+                  {baseannas[index].isAlt ? '🔄 Alt Image' : '📷 Original'}
                 </Text>
-                <Text style={bas69Styles.scaleText}>
-                  Scale: {bas69States[index].scale.toFixed(1)}x
+                <Text style={styles.scaleText}>
+                  Scale: {baseannas[index].scale.toFixed(1)}x
                 </Text>
               </View>
             </View>
@@ -142,25 +142,25 @@ export default function Bas69GambarGrid() {
       </View>
 
       {/* Font mapping info */}
-      <View style={bas69Styles.fontMappingContainer}>
-        <Text style={bas69Styles.fontMappingTitle}>
+      <View style={styles.fontMappingContainer}>
+        <Text style={styles.fontMappingTitle}>
           🎨 Mapping Font untuk Setiap NIM:
         </Text>
-        {bas69ImagePairs.map((pair, index) => {
+        {ImagePairs.map((pair, index) => {
           const currentFont = fontList[index % fontList.length];
           return (
-            <View key={index} style={bas69Styles.fontMappingItem}>
-              <Text style={bas69Styles.fontMappingNim}>
+            <View key={index} style={styles.fontMappingItem}>
+              <Text style={styles.fontMappingNim}>
                 NIM {pair.nimNumber}:
               </Text>
               <Text style={[
-                bas69Styles.fontMappingFont,
+                styles.fontMappingFont,
                 { fontFamily: currentFont }
               ]}>
                 {currentFont}
               </Text>
               {pair.nimNumber === 69 && (
-                <Text style={bas69Styles.yourNimMarker}>← Anda</Text>
+                <Text style={styles.yourNimMarker}>← Anda</Text>
               )}
             </View>
           );
@@ -168,21 +168,21 @@ export default function Bas69GambarGrid() {
       </View>
 
       {/* Summary */}
-      <View style={bas69Styles.summaryContainer}>
-        <Text style={bas69Styles.summaryTitle}>📊 Ringkasan Grid:</Text>
-        <Text style={bas69Styles.summaryText}>
-          • Total gambar: <Text style={{ fontWeight: 'bold' }}>{bas69ImagePairs.length} buah</Text>
+      <View style={styles.summaryContainer}>
+        <Text style={styles.summaryTitle}>📊 Ringkasan Grid:</Text>
+        <Text style={styles.summaryText}>
+          • Total gambar: <Text style={{ fontWeight: 'bold' }}>{ImagePairs.length} buah</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={styles.summaryText}>
           • Range NIM: <Text style={{ fontWeight: 'bold' }}>64-73 (11 gambar)</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={styles.summaryText}>
           • Font: <Text style={{ fontWeight: 'bold' }}>5 Static + 5 Variable = 10 font</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={styles.summaryText}>
           • Cycling: <Text style={{ fontWeight: 'bold' }}>11 gambar menggunakan 10 font (modulo)</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={styles.summaryText}>
           • Interaktivitas: <Text style={{ fontWeight: 'bold' }}>Scale & Image Toggle</Text>
         </Text>
       </View>
@@ -190,7 +190,7 @@ export default function Bas69GambarGrid() {
   );
 }
 
-const bas69Styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',

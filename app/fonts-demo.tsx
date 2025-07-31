@@ -10,11 +10,11 @@ export default function FontsDemo() {
       {/* Font yang sudah ada */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Original Fonts</Text>
-        <Text style={[styles.sampleText, { fontFamily: "fontBas" }]}>
-          fontBas - Halo Kak, Nama Saya Baso Hamzah
+        <Text style={[styles.sampleText, { fontFamily: "fontAnnas" }]}>
+          FontAnnas - Hai, Saya Annas Urbach Ningrum
         </Text>
         <Text style={[styles.sampleText, { fontFamily: "SpaceMono-Regular" }]}>
-          SpaceMono-Regular - Universitas Negeri Makassar
+          SpaceMono-Regular - Universitas Muhammadiyah Makassar
         </Text>
       </View>
 
@@ -23,7 +23,7 @@ export default function FontsDemo() {
         <Text style={styles.sectionTitle}>5 Static Fonts (Separate files for each weight)</Text>
         
         <Text style={[styles.sampleText, { fontFamily: "Font1-Medium" }]}>
-          Font1-Medium - Teknik Informatika Angkatan 2022
+          Font1-Medium - Informatika Angkatan 2022
           
         </Text>
         
@@ -139,3 +139,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+

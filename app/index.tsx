@@ -15,7 +15,7 @@ export default function Index() {
       >
         {/* Header dengan Font Custom */}
         <Text style={{
-          fontFamily: "fontBas",
+          fontFamily: "FontAnnas",
           fontSize: 28,
           fontWeight: 'bold',
           textAlign: 'center',
@@ -38,14 +38,14 @@ export default function Index() {
           marginBottom: 30,
         }}>
           <Text style={{
-            fontFamily: "fontBas",
+            fontFamily: "FontAnnas",
             fontSize: 18,
             textAlign: 'center',
             lineHeight: 28,
             color: '#34495e',
             marginBottom: 15,
           }}>
-            Halo Kak, Nama Saya Baso Hamzah
+            Hai , Saya Annas Urbach Ningrum
           </Text>
           
           <Text style={{
@@ -56,7 +56,7 @@ export default function Index() {
             color: '#7f8c8d',
             marginBottom: 10,
           }}>
-            📚 Mahasiswa Universitas Negeri Makassar
+            📚 Mahasiswa Universitas Muhammadiyah Makassar
           </Text>
           
           <Text style={{
@@ -67,7 +67,7 @@ export default function Index() {
             color: '#7f8c8d',
             marginBottom: 10,
           }}>
-            🏛️ Fakultas Teknik
+            🏛 Fakultas Teknik
           </Text>
           
           <Text style={{
@@ -78,7 +78,7 @@ export default function Index() {
             color: '#7f8c8d',
             marginBottom: 10,
           }}>
-            💻 Jurusan Teknik Informatika
+            💻 Jurusan Informatika
           </Text>
           
           <Text style={{
@@ -111,7 +111,7 @@ export default function Index() {
               elevation: 5,
             }}>
               <Text style={{
-                fontFamily: "fontBas",
+                fontFamily: "fontAnnas",
                 fontSize: 16,
                 color: 'white',
                 fontWeight: 'bold',
@@ -135,13 +135,13 @@ export default function Index() {
               elevation: 5,
             }}>
               <Text style={{
-                fontFamily: "fontBas",
+                fontFamily: "FontAnnas",
                 fontSize: 16,
                 color: 'white',
                 fontWeight: 'bold',
                 textAlign: 'center',
               }}>
-                📸 Grid Gambar NIM 69-77
+                📸 Grid Gambar NIM 85-94
               </Text>
             </TouchableOpacity>
           </Link>
@@ -159,7 +159,7 @@ export default function Index() {
               elevation: 5,
             }}>
               <Text style={{
-                fontFamily: "fontBas",
+                fontFamily: "FontAnnas",
                 fontSize: 16,
                 color: 'white',
                 fontWeight: 'bold',
@@ -190,13 +190,13 @@ export default function Index() {
           borderColor: '#ffeaa7',
         }}>
           <Text style={{
-            fontFamily: "fontBas",
+            fontFamily: "FontAnnas",
             fontSize: 14,
             color: '#856404',
             textAlign: 'center',
             marginBottom: 5,
           }}>
-            🎯 NIM Anda: 69
+            🎯 NIM Anda: 90
           </Text>
           <Text style={{
             fontFamily: "SpaceMono-Regular",
@@ -204,7 +204,7 @@ export default function Index() {
             color: '#856404',
             textAlign: 'center',
           }}>
-            5 nama sebelum dan sesudah NIM 69
+            5 nama sebelum dan sesudah NIM 90
           </Text>
         </View>
       </View>

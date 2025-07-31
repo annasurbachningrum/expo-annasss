@@ -3,16 +3,16 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 // Data nama mahasiswa berdasarkan urutan stambuk (5 sebelum dan 5 setelah nim 69)
 const studentData = [
-  { nim: 64, name: "Fadli", major: "Informatika" },
-  { nim: 65, name: "A.FACHRI", major: "Informatika" },
-  { nim: 66, name: "AGIL", major: "Informatika" },
-  { nim: 67, name: "ALIZAH NU", major: "Informatika" },
-  { nim: 68, name: "YAUMUL FURQAN", major: "Informatika" },
-  { nim: 69, name: "BASO HAMZAH", major: "Informatika" },
-  { nim: 70, name: "INDAH NUR FAUZIAH", major: "Informatika" },
-  { nim: 71, name: "ZALNA NUR ISLAMIA", major: "Informatika" },
-  { nim: 72, name: "IPUL", major: "Informatika" },
-  { nim: 73, name: "ALPIN", major: "Informatika" }
+  { nim: 85, name: "Fadli", major: "Informatika" },
+  { nim: 86, name: "A BASO ARYA", major: "Informatika" },
+  { nim: 87, name: "USRAN", major: "Informatika" },
+  { nim: 88, name: "RIKA ARMAYANI", major: "Informatika" },
+  { nim: 89, name: "NURUL HABIBA", major: "Informatika" },
+  { nim: 90, name: "ANNAS URBACH NINGRUM", major: "Informatika" },
+  { nim: 91, name: "AGUS", major: "Informatika" },
+  { nim: 92, name: "BESSE TALEHA", major: "Informatika" },
+  { nim: 93, name: "DINDA SAFITRI", major: "Informatika" },
+  { nim: 94, name: "FAREL APTAINDRATAMA", major: "Informatika" }
 ];
 
 // Array font sesuai persyaratan: 5 Static + 5 Variable
@@ -47,7 +47,7 @@ const generateFontMapping = () => {
 // Generate font mapping
 const nimToFontMap = generateFontMapping();
 
-export default function Bas69NamaList() {
+export default function NamaList() {
   const [selectedStudent, setSelectedStudent] = useState<number | null>(null);
   const [animationStates, setAnimationStates] = useState(
     studentData.map(() => ({ scale: 1, isPressed: false }))
@@ -74,23 +74,23 @@ export default function Bas69NamaList() {
   };
 
   return (
-    <ScrollView style={bas69Styles.container}>
-      <View style={bas69Styles.header}>
-        <Text style={bas69Styles.headerTitle}>
+    <ScrollView style={annasStyles.container}>
+      <View style={annasStyles.header}>
+        <Text style={annasStyles.headerTitle}>
           🎓 Daftar Mahasiswa Teknik Informatika
         </Text>
-        <Text style={bas69Styles.headerSubtitle}>
+        <Text style={annasStyles.headerSubtitle}>
           10 Nama dengan 10 Font Berbeda
         </Text>
-        <Text style={bas69Styles.yourNim}>
+        <Text style={annasStyles.yourNim}>
           📋 NIM Anda: 69 (Baso Hamzah)
         </Text>
       </View>
 
-      <View style={bas69Styles.legendContainer}>
-        <Text style={bas69Styles.legendTitle}>Keterangan:</Text>
-        <Text style={bas69Styles.legendText}>🔵 Sebelum NIM Anda (64-68)</Text>
-        <Text style={bas69Styles.legendText}>🔴 Setelah NIM Anda (70-73)</Text>
+      <View style={annasStyles.legendContainer}>
+        <Text style={annasStyles.legendTitle}>Keterangan:</Text>
+        <Text style={annasStyles.legendText}>🔵 Sebelum NIM Anda (64-68)</Text>
+        <Text style={annasStyles.legendText}>🔴 Setelah NIM Anda (70-73)</Text>
       </View>
 
       {studentData.map((student, index) => {
@@ -103,7 +103,7 @@ export default function Bas69NamaList() {
             key={student.nim}
             onPress={() => handlePress(index, student.nim)}
             style={[
-              bas69Styles.studentCard,
+              annasStyles.studentCard,
               {
                 transform: [{ scale: animationStates[index].scale }],
                 backgroundColor: isSelected ? '#e3f2fd' : 'white',
@@ -112,19 +112,19 @@ export default function Bas69NamaList() {
               },
             ]}
           >
-            <View style={bas69Styles.studentInfo}>
-              <View style={bas69Styles.nimContainer}>
-                <Text style={bas69Styles.nimText}>
+            <View style={annasStyles.studentInfo}>
+              <View style={annasStyles.nimContainer}>
+                <Text style={annasStyles.nimText}>
                   {isBeforeYou ? '🔵' : '🔴'} NIM: {student.nim}
                 </Text>
-                <Text style={bas69Styles.fontInfo}>
+                <Text style={annasStyles.fontInfo}>
                   Font: {currentFont}
                 </Text>
               </View>
               
               <Text
                 style={[
-                  bas69Styles.nameText,
+                  annasStyles.nameText,
                   {
                     fontFamily: currentFont,
                     fontWeight: getFontWeight(currentFont),
@@ -134,19 +134,19 @@ export default function Bas69NamaList() {
                 {student.name}
               </Text>
               
-              <Text style={bas69Styles.majorText}>
+              <Text style={annasStyles.majorText}>
                 📚 {student.major}
               </Text>
               
               {isSelected && (
-                <View style={bas69Styles.detailContainer}>
-                  <Text style={bas69Styles.detailText}>
+                <View style={annasStyles.detailContainer}>
+                  <Text style={annasStyles.detailText}>
                     ✨ Font yang digunakan: <Text style={{ fontWeight: 'bold' }}>{currentFont}</Text>
                   </Text>
-                  <Text style={bas69Styles.detailText}>
+                  <Text style={annasStyles.detailText}>
                     📍 Posisi: {isBeforeYou ? 'Sebelum' : 'Setelah'} NIM Anda
                   </Text>
-                  <Text style={bas69Styles.detailText}>
+                  <Text style={annasStyles.detailText}>
                     🔢 Urutan: {index + 1} dari 10 mahasiswa
                   </Text>
                 </View>
@@ -156,33 +156,33 @@ export default function Bas69NamaList() {
         );
       })}
 
-      <View style={bas69Styles.fontListContainer}>
-        <Text style={bas69Styles.fontListTitle}>📝 Daftar Font yang Digunakan:</Text>
+      <View style={annasStyles.fontListContainer}>
+        <Text style={annasStyles.fontListTitle}>📝 Daftar Font yang Digunakan:</Text>
         {fontList.map((font, index) => (
-          <View key={font} style={bas69Styles.fontItem}>
-            <Text style={bas69Styles.fontNumber}>{index + 1}.</Text>
-            <Text style={[bas69Styles.fontName, { fontFamily: font }]}>
+          <View key={font} style={annasStyles.fontItem}>
+            <Text style={annasStyles.fontNumber}>{index + 1}.</Text>
+            <Text style={[annasStyles.fontName, { fontFamily: font }]}>
               {font}
             </Text>
-            <Text style={bas69Styles.fontType}>
+            <Text style={annasStyles.fontType}>
               {font.includes('Variable') ? '(Variable)' : '(Static)'}
             </Text>
           </View>
         ))}
       </View>
 
-      <View style={bas69Styles.summaryContainer}>
-        <Text style={bas69Styles.summaryTitle}>📊 Ringkasan:</Text>
-        <Text style={bas69Styles.summaryText}>
+      <View style={annasStyles.summaryContainer}>
+        <Text style={annasStyles.summaryTitle}>📊 Ringkasan:</Text>
+        <Text style={annasStyles.summaryText}>
           • Total mahasiswa ditampilkan: <Text style={{ fontWeight: 'bold' }}>10 orang</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={annasStyles.summaryText}>
           • Font berbeda digunakan: <Text style={{ fontWeight: 'bold' }}>10 font</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={annasStyles.summaryText}>
           • Sebelum NIM 69: <Text style={{ fontWeight: 'bold', color: '#2196f3' }}>5 orang (64-68)</Text>
         </Text>
-        <Text style={bas69Styles.summaryText}>
+        <Text style={annasStyles.summaryText}>
           • Setelah NIM 69: <Text style={{ fontWeight: 'bold', color: '#f44336' }}>5 orang (70-73)</Text>
         </Text>
       </View>
@@ -190,7 +190,7 @@ export default function Bas69NamaList() {
   );
 }
 
-const bas69Styles = StyleSheet.create({
+const annasStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
