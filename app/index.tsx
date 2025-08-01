@@ -4,28 +4,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 export default function Index() {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#f0f8ff' }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 20,
-          minHeight: '100%',
-        }}
-      >
-        {/* Header dengan Font Custom */}
-        <Text style={{
-          fontFamily: "fontBas",
-          fontSize: 28,
-          fontWeight: 'bold',
-          textAlign: 'center',
-          marginBottom: 20,
-          color: '#2c3e50',
-        }}>
-          Selamat Datang! 🎉
-        </Text>
-
-        {/* Profil dengan Font yang Berbeda */}
+      
         <View style={{
           backgroundColor: 'white',
           padding: 25,
@@ -38,14 +17,14 @@ export default function Index() {
           marginBottom: 30,
         }}>
           <Text style={{
-            fontFamily: "fontBas",
+            fontFamily: "font",
             fontSize: 18,
             textAlign: 'center',
             lineHeight: 28,
             color: '#34495e',
             marginBottom: 15,
           }}>
-            Halo Kak, Nama Saya Baso Hamzah
+            Hai, Nama Saya Annas Urbach Ningrum
           </Text>
           
           <Text style={{
@@ -92,59 +71,13 @@ export default function Index() {
           </Text>
         </View>
 
-        {/* Navigation Buttons */}
+      
         <View style={{
           width: '100%',
           gap: 15,
           marginBottom: 20,
         }}>
-          <Link href="/nama-list" asChild>
-            <TouchableOpacity style={{
-              backgroundColor: '#e74c3c',
-              paddingHorizontal: 30,
-              paddingVertical: 15,
-              borderRadius: 25,
-              shadowColor: '#e74c3c',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
-              elevation: 5,
-            }}>
-              <Text style={{
-                fontFamily: "fontBas",
-                fontSize: 16,
-                color: 'white',
-                fontWeight: 'bold',
-                textAlign: 'center',
-              }}>
-                📝 Lihat 10 Nama (10 Font Berbeda)
-              </Text>
-            </TouchableOpacity>
-          </Link>
-
-          <Link href="/gambar-grid" asChild>
-            <TouchableOpacity style={{
-              backgroundColor: '#2ecc71',
-              paddingHorizontal: 30,
-              paddingVertical: 15,
-              borderRadius: 25,
-              shadowColor: '#2ecc71',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
-              elevation: 5,
-            }}>
-              <Text style={{
-                fontFamily: "fontBas",
-                fontSize: 16,
-                color: 'white',
-                fontWeight: 'bold',
-                textAlign: 'center',
-              }}>
-                📸 Grid Gambar NIM 69-77
-              </Text>
-            </TouchableOpacity>
-          </Link>
+          
 
           <Link href="/icon-screen" asChild>
             <TouchableOpacity style={{
@@ -159,7 +92,7 @@ export default function Index() {
               elevation: 5,
             }}>
               <Text style={{
-                fontFamily: "fontBas",
+                fontFamily: "font",
                 fontSize: 16,
                 color: 'white',
                 fontWeight: 'bold',
@@ -170,30 +103,7 @@ export default function Index() {
             </TouchableOpacity>
           </Link>
 
-          <Link href="/fonts-demo" asChild>
-            <TouchableOpacity style={{
-              backgroundColor: '#3498db',
-              paddingHorizontal: 30,
-              paddingVertical: 15,
-              borderRadius: 25,
-              shadowColor: '#3498db',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
-              elevation: 5,
-            }}>
-              <Text style={{
-                fontFamily: "fontBas",
-                fontSize: 16,
-                color: 'white',
-                fontWeight: 'bold',
-                textAlign: 'center',
-              }}>
-                🎨 Demo Semua Font
-              </Text>
-            </TouchableOpacity>
-          </Link>
-        </View>
+    
 
         <Text style={{
           fontFamily: "SpaceMono-Regular",
@@ -214,13 +124,13 @@ export default function Index() {
           borderColor: '#ffeaa7',
         }}>
           <Text style={{
-            fontFamily: "fontBas",
+            fontFamily: "font",
             fontSize: 14,
             color: '#856404',
             textAlign: 'center',
             marginBottom: 5,
           }}>
-            🎯 NIM Anda: 69
+            🎯 NIM Anda: 90
           </Text>
           <Text style={{
             fontFamily: "SpaceMono-Regular",
@@ -228,10 +138,11 @@ export default function Index() {
             color: '#856404',
             textAlign: 'center',
           }}>
-            5 nama sebelum dan sesudah NIM 69
+            
           </Text>
         </View>
       </View>
     </ScrollView>
   );
 }
+

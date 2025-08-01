@@ -7,15 +7,9 @@ export default function IconScreen() {
     <ScrollView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          🎨 10 Ikon Berbeda
-        </Text>
-        <Text style={styles.headerSubtitle}>
-          Menggunakan 5 Keluarga Ikon yang Berbeda
-        </Text>
-        <Text style={styles.studentInfo}>
-          👨‍🎓 Baso Hamzah - NIM: 105841106922
-        </Text>
+        <Text style={styles.headerTitle}>🎨 10 Ikon Berbeda</Text>
+        <Text style={styles.headerSubtitle}>Menggunakan 5 Keluarga Ikon yang Berbeda</Text>
+        <Text style={styles.studentInfo}>👨‍🎓 Annas Urbach Ningrum - NIM: 105841109022</Text>
       </View>
 
       {/* Info Panel */}
@@ -30,121 +24,48 @@ export default function IconScreen() {
 
       {/* Grid Ikon */}
       <View style={styles.iconGrid}>
-        {/* Ionicons */}
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#e74c3c' }]}>
-            <Ionicons name="home" size={40} color="white" />
+        {/* Icon Items */}
+        {[ 
+          { name: 'home', family: 'Ionicons', icon: <Ionicons name="home" size={40} color="white" />, color: '#e74c3c' },
+          { name: 'person', family: 'Ionicons', icon: <Ionicons name="person" size={40} color="white" />, color: '#3498db' },
+          { name: 'heart', family: 'FontAwesome', icon: <FontAwesome name="heart" size={40} color="white" />, color: '#2ecc71' },
+          { name: 'star', family: 'FontAwesome', icon: <FontAwesome name="star" size={40} color="white" />, color: '#f39c12' },
+          { name: 'email', family: 'MaterialIcons', icon: <MaterialIcons name="email" size={40} color="white" />, color: '#9b59b6' },
+          { name: 'phone', family: 'MaterialIcons', icon: <MaterialIcons name="phone" size={40} color="white" />, color: '#1abc9c' },
+          { name: 'camera', family: 'AntDesign', icon: <AntDesign name="camera" size={40} color="white" />, color: '#e67e22' },
+          { name: 'setting', family: 'AntDesign', icon: <AntDesign name="setting" size={40} color="white" />, color: '#8e44ad' },
+          { name: 'music', family: 'Entypo', icon: <Entypo name="music" size={40} color="white" />, color: '#c0392b' },
+          { name: 'location', family: 'Entypo', icon: <Entypo name="location" size={40} color="white" />, color: '#27ae60' },
+        ].map((item, index) => (
+          <View key={index} style={styles.iconItem}>
+            <View style={[styles.iconContainer, { backgroundColor: item.color }]}> 
+              {item.icon}
+            </View>
+            <Text style={styles.iconLabel}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</Text>
+            <Text style={styles.iconFamily}>{item.family}</Text>
           </View>
-          <Text style={styles.iconLabel}>Home</Text>
-          <Text style={styles.iconFamily}>Ionicons</Text>
-        </View>
-
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#3498db' }]}>
-            <Ionicons name="person" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Person</Text>
-          <Text style={styles.iconFamily}>Ionicons</Text>
-        </View>
-
-        {/* FontAwesome */}
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#2ecc71' }]}>
-            <FontAwesome name="heart" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Heart</Text>
-          <Text style={styles.iconFamily}>FontAwesome</Text>
-        </View>
-
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#f39c12' }]}>
-            <FontAwesome name="star" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Star</Text>
-          <Text style={styles.iconFamily}>FontAwesome</Text>
-        </View>
-
-        {/* MaterialIcons */}
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#9b59b6' }]}>
-            <MaterialIcons name="email" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Email</Text>
-          <Text style={styles.iconFamily}>MaterialIcons</Text>
-        </View>
-
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#1abc9c' }]}>
-            <MaterialIcons name="phone" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Phone</Text>
-          <Text style={styles.iconFamily}>MaterialIcons</Text>
-        </View>
-
-        {/* AntDesign */}
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#e67e22' }]}>
-            <AntDesign name="camera" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Camera</Text>
-          <Text style={styles.iconFamily}>AntDesign</Text>
-        </View>
-
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#8e44ad' }]}>
-            <AntDesign name="setting" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Setting</Text>
-          <Text style={styles.iconFamily}>AntDesign</Text>
-        </View>
-
-        {/* Entypo */}
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#c0392b' }]}>
-            <Entypo name="music" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Music</Text>
-          <Text style={styles.iconFamily}>Entypo</Text>
-        </View>
-
-        <View style={styles.iconItem}>
-          <View style={[styles.iconContainer, { backgroundColor: '#27ae60' }]}>
-            <Entypo name="location" size={40} color="white" />
-          </View>
-          <Text style={styles.iconLabel}>Location</Text>
-          <Text style={styles.iconFamily}>Entypo</Text>
-        </View>
+        ))}
       </View>
 
       {/* Summary */}
       <View style={styles.summaryContainer}>
         <Text style={styles.summaryTitle}>📊 Ringkasan Ikon:</Text>
-        <Text style={styles.summaryText}>
-          • Total ikon: <Text style={{ fontWeight: 'bold' }}>10 ikon berbeda</Text>
-        </Text>
-        <Text style={styles.summaryText}>
-          • Keluarga ikon: <Text style={{ fontWeight: 'bold' }}>5 keluarga berbeda</Text>
-        </Text>
-        <Text style={styles.summaryText}>
-          • Layout: <Text style={{ fontWeight: 'bold' }}>Grid 2 kolom dengan warna berbeda</Text>
-        </Text>
-        <Text style={styles.summaryText}>
-          • Source: <Text style={{ fontWeight: 'bold' }}>@expo/vector-icons</Text>
-        </Text>
+        <Text style={styles.summaryText}>• Total ikon: <Text style={{ fontWeight: 'bold' }}>10 ikon berbeda</Text></Text>
+        <Text style={styles.summaryText}>• Keluarga ikon: <Text style={{ fontWeight: 'bold' }}>5 keluarga berbeda</Text></Text>
+        <Text style={styles.summaryText}>• Layout: <Text style={{ fontWeight: 'bold' }}>Grid 2 kolom dengan warna berbeda</Text></Text>
+        <Text style={styles.summaryText}>• Source: <Text style={{ fontWeight: 'bold' }}>@expo/vector-icons</Text></Text>
       </View>
 
-      {/* Detail Tabel */}
+      {/* Detail Table */}
       <View style={styles.tableContainer}>
         <Text style={styles.tableTitle}>📋 Detail Setiap Ikon:</Text>
-        
         <View style={styles.tableHeader}>
           <Text style={[styles.tableCell, styles.tableHeaderText, { flex: 1 }]}>No</Text>
           <Text style={[styles.tableCell, styles.tableHeaderText, { flex: 2 }]}>Nama</Text>
           <Text style={[styles.tableCell, styles.tableHeaderText, { flex: 2 }]}>Keluarga</Text>
           <Text style={[styles.tableCell, styles.tableHeaderText, { flex: 2 }]}>Warna</Text>
         </View>
-
-        {[
+        {[ 
           { no: 1, name: 'home', family: 'Ionicons', color: '#e74c3c' },
           { no: 2, name: 'person', family: 'Ionicons', color: '#3498db' },
           { no: 3, name: 'heart', family: 'FontAwesome', color: '#2ecc71' },
@@ -160,7 +81,7 @@ export default function IconScreen() {
             <Text style={[styles.tableCell, { flex: 1 }]}>{item.no}</Text>
             <Text style={[styles.tableCell, { flex: 2 }]}>{item.name}</Text>
             <Text style={[styles.tableCell, { flex: 2 }]}>{item.family}</Text>
-            <View style={[styles.tableCell, { flex: 2, flexDirection: 'row', alignItems: 'center' }]}>
+            <View style={[styles.tableCell, { flex: 2, flexDirection: 'row', alignItems: 'center' }]}> 
               <View style={[styles.colorIndicator, { backgroundColor: item.color }]} />
               <Text style={styles.colorText}>{item.color}</Text>
             </View>
@@ -174,116 +95,126 @@ export default function IconScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#f5f6fa',
   },
   header: {
-    backgroundColor: '#2c3e50',
+    backgroundColor: '#b01962ff',
     padding: 25,
     alignItems: 'center',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
   },
   headerTitle: {
-    fontSize: 26,
-    fontWeight: 'bold',
+    fontSize: 28,
+    fontWeight: '900',
     color: 'white',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   headerSubtitle: {
     fontSize: 16,
-    color: '#bdc3c7',
+    color: '#dcdde1',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   studentInfo: {
     fontSize: 14,
-    color: '#f39c12',
+    color: '#f1c40f',
     fontWeight: 'bold',
     textAlign: 'center',
   },
   infoPanel: {
     backgroundColor: 'white',
-    margin: 20,
-    padding: 20,
-    borderRadius: 12,
+    margin: 16,
+    padding: 16,
+    borderRadius: 14,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.15,
+    shadowRadius: 5,
     elevation: 3,
   },
   infoPanelTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#2c3e50',
-    marginBottom: 12,
+    marginBottom: 10,
   },
   infoPanelText: {
     fontSize: 14,
-    color: '#7f8c8d',
-    marginBottom: 6,
+    color: '#636e72',
+    marginBottom: 4,
     lineHeight: 20,
   },
   iconGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    paddingHorizontal: 20,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
     paddingVertical: 10,
   },
   iconItem: {
     alignItems: 'center',
-    marginBottom: 25,
-    width: '45%',
+    marginBottom: 20,
+    width: '47%',
+    backgroundColor: '#fff',
+    padding: 12,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   iconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
+    width: 72,
+    height: 72,
+    borderRadius: 36,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 6,
-    elevation: 5,
+    marginBottom: 8,
   },
   iconLabel: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: '#2c3e50',
-    marginBottom: 4,
+    marginBottom: 2,
   },
   iconFamily: {
     fontSize: 12,
-    color: '#7f8c8d',
+    color: '#95a5a6',
     fontStyle: 'italic',
   },
   summaryContainer: {
-    backgroundColor: '#ecf0f1',
-    margin: 20,
-    padding: 20,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#bdc3c7',
+    backgroundColor: '#dff9fb',
+    margin: 16,
+    padding: 16,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#c7ecee',
   },
   summaryTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#2c3e50',
-    marginBottom: 12,
+    color: '#130f40',
+    marginBottom: 10,
     textAlign: 'center',
   },
   summaryText: {
     fontSize: 14,
-    color: '#34495e',
-    marginBottom: 6,
+    color: '#30336b',
+    marginBottom: 4,
     lineHeight: 20,
   },
   tableContainer: {
     backgroundColor: 'white',
-    margin: 20,
-    borderRadius: 12,
+    margin: 16,
+    borderRadius: 14,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -295,14 +226,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#2c3e50',
-    padding: 15,
+    padding: 12,
     textAlign: 'center',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#dcdde1',
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#34495e',
-    paddingVertical: 12,
+    backgroundColor: '#2f3640',
+    paddingVertical: 10,
   },
   tableHeaderText: {
     color: 'white',
@@ -310,21 +241,21 @@ const styles = StyleSheet.create({
   },
   tableRow: {
     flexDirection: 'row',
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ecf0f1',
+    borderBottomColor: '#f1f2f6',
   },
   tableCell: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     fontSize: 14,
     color: '#2c3e50',
     textAlign: 'center',
   },
   colorIndicator: {
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    marginRight: 8,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    marginRight: 6,
   },
   colorText: {
     fontSize: 12,
