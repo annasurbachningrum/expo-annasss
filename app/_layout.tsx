@@ -77,7 +77,7 @@
 //     ),
 //   }}/>;
 // }
-export type RowProps = {
-    label: string;
-    value: string;
-};
+// export type RowProps = {
+//     label: string;
+//     value: string;
+// };

@@ -1,97 +1,289 @@
 
+import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import React from 'react';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-
-const HomeScreen = () => {
+export default function Home() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.headingRow}>
-        <AntDesign name="home" size={26} color="#2e86de" style={{ marginRight: 8 }} />
-        <Text style={styles.heading}>Universitas Muhammadiyah Makassar</Text>
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Universitas Muhammadiyah Makassar</Text>
+        <Text style={styles.subtitle}>UNISMUH MAKASSAR</Text>
       </View>
 
-      <Image
-        source={require("../../assets/images/logo.jpg")}
-        style={styles.image}
-        resizeMode="contain"
-      />
-
+      {/* Gambar dan Informasi Pertama */}
       <View style={styles.section}>
-        <Text style={styles.subHeading}>TENTANG UNISMUH MAKASSAR</Text>
-        <Text style={styles.paragraph}>
-          Universitas Muhammadiyah Makassar atau Unismuh Makassar adalah salah satu perguruan tinggi Muhammadiyah yang
-          merupakan amal usaha Muhammadiyah dalam mengembangkan pendidikan khususnya pada jenjang pendidikan tinggi.{"\n\n"}
-          Universitas Muhammadiyah Makassar bukan hanya menyiapkan mahasiswa dengan bekal keterampilan, melainkan juga
-          dengan sikap dan karakter yang dibina khusus selama menjalani proses perkuliahan.
-        </Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.subHeading}>Visi</Text>
-        <Text style={styles.paragraph}>
-          “Menjadi Perguruan Tinggi Islam Terkemuka, Unggul, Terpercaya, dan Mandiri.”
-        </Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.subHeading}>Misi</Text>
-        <View style={styles.listWrapper}>
-          <Text style={styles.bullet}> Meningkatkan keimanan dan ketaqwaan kepada Allah SWT, melalui Pengkajian, Pembinaan, dan Pengamalan Al Islam Kemuhammadiyahan.</Text>
-          <Text style={styles.bullet}> Menyelenggarakan pendidikan dan pembelajaran yang berkualitas.</Text>
-          <Text style={styles.bullet}> Menyelenggarakan penelitian yang inovatif, kreatif, unggul, dan berdaya saing.</Text>
-          <Text style={styles.bullet}> Menyelenggarakan pengabdian yang berdaya guna pada masyarakat.</Text>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../assets/images/unismuh11.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+            onLoad={() => console.log('✅ unismuh11.jpeg berhasil dimuat!')}
+            onError={(error) => {
+              console.log('❌ Gagal memuat unismuh11.jpeg:', error);
+            }}
+          />
+          <View style={styles.imageOverlay}>
+            <Text style={styles.imageLabel}>🏛️ Kampus Unismuh Makassar</Text>
+          </View>
         </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.description}>
+            Unismuh Makassar adalah perguruan tinggi swasta yang berkomitmen dalam menghasilkan lulusan yang berkualitas, berakhlak mulia, dan berdaya saing tinggi. Dengan visi menjadi universitas unggul yang berbasis nilai-nilai Islam, Unismuh Makassar terus mengembangkan program pendidikan yang inovatif dan relevan dengan kebutuhan zaman.
+          </Text>
+        </View>
+      </View>
+
+      {/* Gambar dan Informasi Kedua */}
+      <View style={styles.section}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../assets/images/unismuh22.jpeg')}
+            style={styles.image}
+            resizeMode="cover"
+            onLoad={() => console.log('✅ unismuh22.jpeg berhasil dimuat!')}
+            onError={(error) => {
+              console.log('❌ Gagal memuat unismuh22.jpeg:', error);
+            }}
+          />
+          <View style={styles.imageOverlay}>
+            <Text style={styles.imageLabel}>🏆 Akreditasi Unggul Unismuh</Text>
+          </View>
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.description}>
+            UNISMUH MAKASSAR MERAIH AKREDITASI UNGGUL! Pencapaian gemilang ini merupakan bukti komitmen universitas dalam memberikan pendidikan berkualitas tinggi. Dengan akreditasi unggul, Unismuh Makassar semakin mantap dalam melangkah maju sebagai institusi pendidikan yang terdepan di Indonesia Timur.
+          </Text>
+        </View>
+      </View>
+
+      {/* Informasi Tambahan */}
+      <View style={styles.infoSection}>
+        <Text style={styles.infoTitle}>Keunggulan Unismuh Makassar:</Text>
+        <View style={styles.bulletPoint}>
+          <Text style={styles.bullet}>• </Text>
+          <Text style={styles.bulletText}>Akreditasi Unggul</Text>
+        </View>
+        <View style={styles.bulletPoint}>
+          <Text style={styles.bullet}>• </Text>
+          <Text style={styles.bulletText}>Berbasis Nilai-nilai Islam</Text>
+        </View>
+        <View style={styles.bulletPoint}>
+          <Text style={styles.bullet}>• </Text>
+          <Text style={styles.bulletText}>Fasilitas Modern dan Lengkap</Text>
+        </View>
+        <View style={styles.bulletPoint}>
+          <Text style={styles.bullet}>• </Text>
+          <Text style={styles.bulletText}>Dosen Berkualitas dan Berpengalaman</Text>
+        </View>
+        <View style={styles.bulletPoint}>
+          <Text style={styles.bullet}>• </Text>
+          <Text style={styles.bulletText}>Program Studi Terakreditasi</Text>
+        </View>
+      </View>
+
+      {/* Quick Navigation */}
+      <View style={styles.navSection}>
+        <Text style={styles.navTitle}>Navigasi Cepat</Text>
+        
+        <TouchableOpacity 
+          style={styles.navButton}
+          onPress={() => router.push('/(tabs)/students')}
+        >
+          <Ionicons name="people" size={24} color="#fff" />
+          <View style={styles.navButtonContent}>
+            <Text style={styles.navButtonText}>Daftar Mahasiswa</Text>
+            <Text style={styles.navButtonSubtext}>Lihat semua mahasiswa</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="#fff" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity 
+          style={styles.navButton}
+          onPress={() => router.push('/(tabs)/profile')}
+        >
+          <Ionicons name="person" size={24} color="#fff" />
+          <View style={styles.navButtonContent}>
+            <Text style={styles.navButtonText}>Profil Mahasiswa</Text>
+            <Text style={styles.navButtonSubtext}>Data pribadi & akademik</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="#fff" />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
-};
-
-export default HomeScreen;
+}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
-    padding: 20,
+    flex: 1,
+    backgroundColor: '#f5f5f5',
   },
-  headingRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 15,
+  header: {
+    backgroundColor: '#2196F3',
+    paddingVertical: 30,
+    paddingHorizontal: 20,
+    alignItems: 'center',
   },
-  heading: {
-    textAlign: "center",
-    fontWeight: "bold",
+  title: {
     fontSize: 22,
-    color: "#2e86de",
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 5,
+    fontFamily: 'fontBas',
   },
-  image: {
-    marginBottom: 20,
-    width: 120,
-    height: 120,
-    alignSelf: "center",
+  subtitle: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '600',
+    fontFamily: 'Font2-Cursive-Bold',
   },
   section: {
-    marginBottom: 20,
+    backgroundColor: '#fff',
+    margin: 15,
+    borderRadius: 12,
+    overflow: 'hidden',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
   },
-  subHeading: {
-    fontWeight: "bold",
-    marginBottom: 8,
-    fontSize: 18,
+  
+  imageContainer: {
+    width: '100%',
+    height: 1000,
+    backgroundColor: '#ffffff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    overflow: 'hidden',
   },
-  paragraph: {
-    textAlign: "left",
-    lineHeight: 22,
+  
+  image: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#f8f9fa',
+    
+  },
+  imageOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(33, 150, 243, 0.9)',
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+  },
+  imageLabel: {
+    color: '#fff',
     fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: 'fontBas',
+    textAlign: 'center',
   },
-  listWrapper: {
-    marginTop: 6,
+  textContainer: {
+    padding: 20,
+  },
+  description: {
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#333',
+    textAlign: 'justify',
+    fontFamily: 'fontBas',
+  },
+  infoSection: {
+    backgroundColor: '#fff',
+    margin: 15,
+    padding: 20,
+    borderRadius: 12,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+  },
+  infoTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2196F3',
+    marginBottom: 15,
+    fontFamily: 'fontBas',
+  },
+  bulletPoint: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 8,
   },
   bullet: {
-    marginBottom: 10,
-    lineHeight: 22,
+    fontSize: 16,
+    color: '#2196F3',
+    fontWeight: 'bold',
+    marginRight: 5,
+  },
+  bulletText: {
+    flex: 1,
     fontSize: 14,
+    color: '#333',
+    fontFamily: 'fontBas',
+  },
+  navSection: {
+    backgroundColor: '#fff',
+    margin: 15,
+    padding: 20,
+    borderRadius: 12,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+  },
+  navTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#2196F3',
+    marginBottom: 15,
+    fontFamily: 'fontBas',
+  },
+  navButton: {
+    backgroundColor: '#2196F3',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+    borderRadius: 10,
+  },
+  navButtonContent: {
+    flex: 1,
+    marginLeft: 15,
+  },
+  navButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    fontFamily: 'fontBas',
+  },
+  navButtonSubtext: {
+    color: 'rgba(255,255,255,0.8)',
+    fontSize: 14,
+    marginTop: 2,
+    fontFamily: 'fontBas',
   },
 });

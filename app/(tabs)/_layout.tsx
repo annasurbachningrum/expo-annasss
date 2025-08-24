@@ -1,35 +1,58 @@
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 
-import { Tabs } from "expo-router";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
-
-export default function Layout() {
+export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: '#2196F3',
+        tabBarInactiveTintColor: '#666',
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '600',
+        },
+        tabBarStyle: {
+          backgroundColor: '#fff',
+          borderTopWidth: 1,
+          borderTopColor: '#e0e0e0',
+          height: 60,
+          paddingBottom: 8,
+          paddingTop: 8,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="home" size={size} color={color} />
+            <Ionicons name="home" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="students"
         options={{
-          title: "About",
+          title: 'Students',
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="infocirlceo" size={size} color={color} />
+            <Ionicons name="people" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="profil"
+        name="profile"
         options={{
-          title: "Profil",
+          title: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="person-outline" size={size} color={color} />
+            <Ionicons name="person" size={size} color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="user/[id]"
+        options={{
+          href: null, // Menyembunyikan dari tab bar
+          title: 'User Detail',
         }}
       />
     </Tabs>
